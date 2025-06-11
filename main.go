@@ -33,7 +33,7 @@ type Exporter struct {
 	locustUsers,
 	locustFailRatio,
 	locustCurrentResponseTimePercentileNinetyFifth,
-	locustCurrentResponseTimePercentileNinetieth
+	locustCurrentResponseTimePercentileNinetieth,
 	locustCurrentResponseTimePercentileFiftieth prometheus.Gauge
 	locustRunning,
 	locustWorkersCount,
