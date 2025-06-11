@@ -33,6 +33,7 @@ type Exporter struct {
 	locustUsers,
 	locustFailRatio,
 	locustCurrentResponseTimePercentileNinetyFifth,
+	locustCurrentResponseTimePercentileNinetieth
 	locustCurrentResponseTimePercentileFiftieth prometheus.Gauge
 	locustRunning,
 	locustWorkersCount,
@@ -104,6 +105,13 @@ func NewExporter(uri string, timeout time.Duration) (*Exporter, error) {
 				Namespace: namespace,
 				Subsystem: "requests",
 				Name:      "current_response_time_percentile_95",
+			},
+		),
+		locustCurrentResponseTimePercentileNinetieth: prometheus.NewGauge(
+			prometheus.GaugeOpts{
+				Namespace: namespace,
+				Subsystem: "requests",
+				Name:      "current_response_time_percentile_90",
 			},
 		),
 		locustCurrentResponseTimePercentileFiftieth: prometheus.NewGauge(
