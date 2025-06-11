@@ -32,8 +32,8 @@ type Exporter struct {
 	locustUp,
 	locustUsers,
 	locustFailRatio,
-	locustCurrentResponseTimePercentileNinetyFifth,
-	locustCurrentResponseTimePercentileNinetieth,
+	locustCurrentResponseTimePercentileNinetyFifth prometheus.Gauge
+	locustCurrentResponseTimePercentileNinetieth prometheus.Gauge
 	locustCurrentResponseTimePercentileFiftieth prometheus.Gauge
 	locustRunning,
 	locustWorkersCount,
@@ -263,6 +263,7 @@ func (e *Exporter) Describe(ch chan<- *prometheus.Desc) {
 	ch <- e.totalScrapes.Desc()
 	ch <- e.locustFailRatio.Desc()
 	ch <- e.locustCurrentResponseTimePercentileNinetyFifth.Desc()
+	ch <- e.locustCurrentResponseTimePercentileNinetieth.Desc()
 	ch <- e.locustCurrentResponseTimePercentileFiftieth.Desc()
 
 	e.locustNumRequests.Describe(ch)
